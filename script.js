@@ -54,11 +54,12 @@ function declareWins(){
     }else{
         divFinalResult.textContent = 'Dommage ! ordinateur a gagné la partie'
     }
+    
+    disableBouttons()
 }
 
-playRound("pierre")
-playRound("papier")
-playRound("ciseaux")
-
-
-
+function disableBouttons(){
+    btnCiseaux.disabled = true;  
+    btnPapier.disabled = true;
+    btnPierre.disabled = true;
+}
