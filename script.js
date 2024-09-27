@@ -14,6 +14,7 @@ function computerChoice(){
 
 
 function playRound(playerSelection){
+    playerSelection.toLowerCase()
     let computerSelection = computerChoice();
     let divResult = document.querySelector("#result");
 
@@ -22,9 +23,9 @@ function playRound(playerSelection){
     if(playerSelection === computerSelection){
         result = "Egalité, vous avez tout les deux choisi" +playerSelection
     } else if (
-        (playerSelection === 'Pierre' && computerSelection === 'Ciseaux') ||
-        (playerSelection === 'Feuille' && computerSelection === 'Pierre') ||
-        (playerSelection === 'Ciseaux' && computerSelection === 'Feuille')
+        (playerSelection === 'pierre' && computerSelection === 'ciseaux') ||
+        (playerSelection === 'feuille' && computerSelection === 'pierre') ||
+        (playerSelection === 'ciseaux' && computerSelection === 'feuille')
     ){
         result = `Vous avez gagné ! ${playerSelection} bat ${computerSelection}.`
         playerScore++
@@ -33,5 +34,15 @@ function playRound(playerSelection){
         computerScore++
     }
     divResult.textContent = result
+    updateScore()
 }
+
+function updateScore(){
+    document.querySelector("#player-score").textContent = playerScore;
+    document.querySelector("#ordinateur-score").textContent= computerScore;
+}
+
+playRound("pierre")
+playRound("papier")
+playRound("ciseaux")
 
