@@ -1,9 +1,19 @@
 let playerScore = 0;
 let computerScore = 0;
 
-let btnPapier = document.querySelector("#papier")
-let btnPierre = document.querySelector("#pierre")
-let btnCiseaux = document.querySelector("#ciseaux")
+
+document.querySelector("#papier").addEventListener("click", () =>{
+    playRound("papier")
+})
+
+document.querySelector("#pierre").addEventListener("click", () =>{
+    playRound("pierre");
+});
+
+document.querySelector("#ciseaux").addEventListener("click", ()=>{
+    playRound("ciseaux")
+})
+
 
 function computerChoice(){
     let choices = ["papier", "pierre", "ciseaux"];
@@ -21,11 +31,11 @@ function playRound(playerSelection){
     let result = " ";
 
     if(playerSelection === computerSelection){
-        result = "Egalité, vous avez tout les deux choisi" +playerSelection
+        result = "Egalité, vous avez tout les deux choisi " +playerSelection
     } else if (
         (playerSelection === 'pierre' && computerSelection === 'ciseaux') ||
         (playerSelection === 'papier' && computerSelection === 'pierre') ||
-        (playerSelection === 'ciseaux' && computerSelection === 'papier')
+        (playerSelection === 'ciseaux'&& computerSelection === 'papier')
     ){
         result = `Vous avez gagné ! ${playerSelection} bat ${computerSelection}.`
         playerScore++
@@ -59,7 +69,10 @@ function declareWins(){
 }
 
 function disableBouttons(){
-    btnCiseaux.disabled = true;  
-    btnPapier.disabled = true;
-    btnPierre.disabled = true;
+    document.querySelector("#papier").disabled = true;
+    document.querySelector("#pierre").disabled = true;
+    document.querySelector("#ciseaux").disabled = true;
 }
+
+
+
