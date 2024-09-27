@@ -9,6 +9,5 @@ function computerChoice(){
     let choices = ["papier", "pierre", "ciseaux"];
     let randonChoices = Math.floor(Math.random() * choices.length)
 
-    console.log(choices[randonChoices])
+    return choices[randonChoices]
 }
-computerChoice()
